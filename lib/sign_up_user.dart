@@ -101,27 +101,27 @@ class _SignUserScreenState extends State<SignUserScreen> {
 
              // gender------------------------------------------------------------
 
-              FormHelper.dropDownWidget (
-                context,
-                "Gender",
-                this.genderId,
-                this.gender,
-                  (onChangedVal){
-                  this.genderId = onChangedVal;
-                  print("gender: $onChangedVal");
-                  },
-                    (onValidateVal){
-                  if(onValidateVal == null){
-                    return 'Please Select Gender';
-                  }
-                  return null;
-              },
-                borderColer: Theme.of(context).primaryColor,
-                borderFocusColer: Theme.of(context).primaryColor,
-                borderRadius: 30,
-                optionalValue:"id",
-                optionalLable:"label",
-              ),
+              // FormHelper.dropDownWidget (
+              //   context,
+              //   "Gender",
+              //   this.genderId,
+              //   this.gender,
+              //     (onChangedVal){
+              //     this.genderId = onChangedVal;
+              //     print("gender: $onChangedVal");
+              //     },
+              //       (onValidateVal){
+              //     if(onValidateVal == null){
+              //       return 'Please Select Gender';
+              //     }
+              //     return null;
+              // },
+              //   borderColer: Theme.of(context).primaryColor,
+              //   borderFocusColer: Theme.of(context).primaryColor,
+              //   borderRadius: 30,
+              //   optionalValue:"id",
+              //   optionalLable:"label",
+              // ),
 
               //email----------------------------------------------------------
               SizedBox(

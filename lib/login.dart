@@ -121,6 +121,7 @@ class LoginScreen extends StatelessWidget {
               child: Material(
                 elevation: 18,
                 shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
                 child: TextFormField(
                   controller: confirmPasswordController,
                   keyboardType: TextInputType.visiblePassword,
@@ -164,34 +165,35 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(
-                    width: 90,
+                    width: 100,
                     height: 40,
                     child: RaisedButton(
                       color: Colors.blue,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)
-                      ),
+                          borderRadius: BorderRadius.circular(30)),
+                      padding: const EdgeInsets.all(0.0),
                       onPressed: () {
                         print(userNameController.text);
                         print(passwordController.text);
                       },
                       child: Ink(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [ Color(0xFF51D5E8), Color(0xff1D1C6A)],
-                            begin: Alignment.center
-
-                            
-                          ),
-                        ),
-
-                      ),
-                        // child: const Text(
-                        //   'Sign In',
-                        //   style: TextStyle(color: Colors.white, fontSize: 16),
-                        // ),
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF51D5E8), Color(0xff1D1C6A)],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Container(
+                            constraints: const BoxConstraints(
+                                maxWidth: 200, minHeight: 50),
+                            alignment: Alignment.center,
+                            child: const Text("Sign In",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16))),
                       ),
                     ),
+                  ),
                 ],
               ),
             ),
