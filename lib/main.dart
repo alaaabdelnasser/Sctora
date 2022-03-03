@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
@@ -37,29 +37,30 @@ class _SplashScreenState extends State<SplashScreen> {
 
       backgroundColor: Colors.white,
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 60),
-          child: Row(
-
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/sctora.png',
-                    height: 250,
+              Padding(
+                padding: const EdgeInsets.only(right: 0.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/sctora.png',
+                      height: 250,
 
-                  ),
+                    ),
 
-                ],
+                  ],
+                ),
               ),
             ],
           ),
         ),
-      ),
+
     );
   }
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context)

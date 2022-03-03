@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sctora/sign_up_user.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   var userNameController = TextEditingController();
   var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
 
   LoginScreen({Key? key}) : super(key: key);
 
@@ -27,128 +29,198 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 100,
             ),
-            //username--------------------
+            //username----------------------------------------------------------
             SizedBox(
               width: 323,
               height: 44,
-              child: TextFormField(
-                controller: userNameController,
-
-                keyboardType: TextInputType.text,
-                onFieldSubmitted: (String value) {
-                  print(value);
-                },
-                onChanged: (String value) {
-                  print(value);
-                },
-                //for email@..................................
-                //shadowColor: Color(0xFFC7D0F8),
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
+              child: Material(
+                elevation: 18,
+                shadowColor: const Color(0xFFC7D0F8),
+                child: TextFormField(
+                  controller: userNameController,
+                  keyboardType: TextInputType.text,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                  hintText: 'username',
-                  hintStyle:
-                      const TextStyle(color: Colors.black12, fontSize: 14),
-                  border: const OutlineInputBorder(),
-                  suffixIcon: const Icon(
-                    Icons.account_circle_outlined,
-                    color: Color(0xFF51D5E8),
-                    size: 16,
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'username',
+                    hintStyle:
+                        const TextStyle(color: Colors.black26, fontSize: 16),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: const Icon(
+                      Icons.account_circle_outlined,
+                      color: Color(0xFF51D5E8),
+                      size: 20,
+                    ),
                   ),
                 ),
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
-            //password-------------------
+            //password----------------------------------------------------------
             SizedBox(
               width: 323,
               height: 44,
-              child: TextFormField(
-                controller: passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                onFieldSubmitted: (String value) {
-                  print(value);
-                },
-                onChanged: (String value) {
-                  print(value);
-                },
-                obscureText: true,
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
+              child: Material(
+                elevation: 18,
+                shadowColor: const Color(0xFFC7D0F8),
+                child: TextFormField(
+                  controller: passwordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                  hintText: 'password',
-                  hintStyle:
-                      const TextStyle(color: Colors.black12, fontSize: 14),
-                  border: const OutlineInputBorder(),
-                  suffixIcon: const Icon(
-                    Icons.lock_outline_rounded,
-                    color: Color(0xFF3A83B0),
-                    size: 16,
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'password',
+                    hintStyle:
+                        const TextStyle(color: Colors.black26, fontSize: 16),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: const Icon(
+                      Icons.lock_outline_rounded,
+                      color: Color(0xFF3A83B0),
+                      size: 20,
+                    ),
                   ),
                 ),
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
-            //sign in button--------------
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                SizedBox(
-                  width: 90,
-                  height: 40,
+            //confirm password-------------------------------------------------
+            SizedBox(
+              width: 323,
+              height: 44,
+              child: Material(
+                elevation: 18,
+                shadowColor: const Color(0xFFC7D0F8),
+                child: TextFormField(
+                  controller: confirmPasswordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'confirm password',
+                    hintStyle:
+                        const TextStyle(color: Colors.black26, fontSize: 16),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: const Icon(
+                      Icons.lock_outline_rounded,
+                      color: Color(0xFF3A83B0),
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
 
+            //sign in button----------------------------------------------------
+            Padding(
+              padding: const EdgeInsets.only(right: 36.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(
+                    width: 90,
+                    height: 40,
+                    child: RaisedButton(
+                      color: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)
+                      ),
+                      onPressed: () {
+                        print(userNameController.text);
+                        print(passwordController.text);
+                      },
+                      child: Ink(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [ Color(0xFF51D5E8), Color(0xff1D1C6A)],
+                            begin: Alignment.center
 
-                  child: MaterialButton(
-                    onPressed: () {
+                            
+                          ),
+                        ),
 
-                      print(userNameController.text);
-                      print(passwordController.text);
-                    },
-                    child: Ink(
-
-                      child: const Text(
-                        'Sign In',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                        // child: const Text(
+                        //   'Sign In',
+                        //   style: TextStyle(color: Colors.white, fontSize: 16),
+                        // ),
                       ),
                     ),
-                    color: Colors.blue,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
+
             //don't have account---------
-            const SizedBox(
-              height: 290,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Don\'t have an account?',
-                  style: TextStyle(color: Color(0xFF8A9EAD), fontSize: 12),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('SIGN UP',
-                      style: TextStyle(color: Color(0xFF1F236E), fontSize: 12)),
-                ),
-              ],
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Don\'t have an account?',
+                    style: TextStyle(color: Color(0xFF8A9EAD), fontSize: 12),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // leads to sign up screen :
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUserScreen()));
+                    },
+                    child: const Text('SIGN UP',
+                        style:
+                            TextStyle(color: Color(0xFF1F236E), fontSize: 12)),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
