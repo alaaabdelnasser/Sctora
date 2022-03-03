@@ -31,128 +31,146 @@ class _SignUserScreenState extends State<SignUserScreen> {
           child: Column(
             children: [
               // first last name------------------------------------------------
-              Row(
-                children: [
-                  //   SizedBox(
-                  //     width: 150,
-                  //     height: 44,
-                  //     child: TextFormField(
-                  //       //controller: FirstNameController,
-                  //
-                  //       keyboardType: TextInputType.text,
-                  //       onFieldSubmitted: (String value) {
-                  //         print(value);
-                  //       },
-                  //       onChanged: (String value) {
-                  //         print(value);
-                  //       },
-                  //       //shadowColor: Color(0xFFC7D0F8),
-                  //       decoration: InputDecoration(
-                  //         contentPadding: const EdgeInsets.only(left: 15.0),
-                  //         enabledBorder: OutlineInputBorder(
-                  //           borderRadius: BorderRadius.circular(30),
-                  //           borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                  //         ),
-                  //         focusedBorder: OutlineInputBorder(
-                  //             borderRadius: BorderRadius.circular(30),
-                  //             borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                  //         hintText: 'First Name',
-                  //         hintStyle:
-                  //         const TextStyle(color: Colors.black26, fontSize: 16),
-                  //         border: const OutlineInputBorder(),
-                  //       ),
-                  //     ),
-                  //   ),
+                    SizedBox(
+                      width: 150,
+                      height: 44,
+                      child: Material(
+                        elevation: 18,
+                        shadowColor: const Color(0xFFC7D0F8),
+                        borderRadius: BorderRadius.circular(30),
+                        child: TextFormField(
+                          //controller: FirstNameController,
+
+                          keyboardType: TextInputType.text,
+                          onFieldSubmitted: (String value) {
+                            print(value);
+                          },
+                          onChanged: (String value) {
+                            print(value);
+                          },
+                          //shadowColor: Color(0xFFC7D0F8),
+                          decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.only(left: 15.0),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                            hintText: 'First Name',
+                            hintStyle:
+                            const TextStyle(color: Colors.black26, fontSize: 16),
+                            border: const OutlineInputBorder(),
+                          ),
+                        ),
+                      ),
+                    ),
+                 const SizedBox(
+                   height: 30,
+                 ),
 
                   SizedBox(
                     width: 150,
                     height: 44,
-                    child: TextFormField(
-                      controller: LastNameController,
+                    child: Material(
+                      elevation: 18,
+                      shadowColor: const Color(0xFFC7D0F8),
+                      borderRadius: BorderRadius.circular(30),
+                      child: TextFormField(
+                        controller: LastNameController,
 
-                      keyboardType: TextInputType.text,
-                      onFieldSubmitted: (String value) {
-                        print(value);
-                      },
-                      onChanged: (String value) {
-                        print(value);
-                      },
-                      //shadowColor: Color(0xFFC7D0F8),
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(left: 15.0),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide:
-                              const BorderSide(color: Color(0x1D1C6Aff)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
+                        keyboardType: TextInputType.text,
+                        onFieldSubmitted: (String value) {
+                          print(value);
+                        },
+                        onChanged: (String value) {
+                          print(value);
+                        },
+                        //shadowColor: Color(0xFFC7D0F8),
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 15.0),
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                             borderSide:
-                                const BorderSide(color: Color(0x1D1C6Aff))),
-                        hintText: 'Last Name',
-                        hintStyle: const TextStyle(
-                            color: Colors.black26, fontSize: 16),
-                        border: const OutlineInputBorder(),
+                                const BorderSide(color: Color(0x1D1C6Aff)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide:
+                                  const BorderSide(color: Color(0x1D1C6Aff))),
+                          hintText: 'Last Name',
+                          hintStyle: const TextStyle(
+                              color: Colors.black26, fontSize: 16),
+                          border: const OutlineInputBorder(),
+                        ),
                       ),
                     ),
                   ),
-                ],
-              ),
+
 
              // gender------------------------------------------------------------
 
-              // FormHelper.dropDownWidget (
-              //   context,
-              //   "Gender",
-              //   this.genderId,
-              //   this.gender,
-              //     (onChangedVal){
-              //     this.genderId = onChangedVal;
-              //     print("gender: $onChangedVal");
-              //     },
-              //       (onValidateVal){
-              //     if(onValidateVal == null){
-              //       return 'Please Select Gender';
-              //     }
-              //     return null;
-              // },
-              //   borderColer: Theme.of(context).primaryColor,
-              //   borderFocusColer: Theme.of(context).primaryColor,
-              //   borderRadius: 30,
-              //   optionalValue:"id",
-              //   optionalLable:"label",
-              // ),
+              FormHelper.dropDownWidget (
+                context,
+                "Gender",
+                this.genderId,
+                this.gender,
+                  (onChangedVal){
+                  this.genderId = onChangedVal;
+                  print("gender: $onChangedVal");
+                  },
+                    (onValidateVal){
+                  if(onValidateVal == null){
+                    return 'Please Select Gender';
+                  }
+                  return null;
+              },
+                borderColer: Theme.of(context).primaryColor,
+                borderFocusColer: Theme.of(context).primaryColor,
+                borderRadius: 30,
+                optionalValue:"id",
+                optionalLable:"label",
+              ),
+        const SizedBox(
+          height: 30,
+        ),
 
               //email----------------------------------------------------------
               SizedBox(
                 width: 323,
                 height: 44,
-                child: TextFormField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 15.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+                child: Material(
+                  elevation: 18,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'Email',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    suffixIcon: const Icon(
-                      Icons.mail,
-                      color: Color(0xFF3A83B0),
-                      size: 20,
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Email',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      suffixIcon: const Icon(
+                        Icons.mail,
+                        color: Color(0xFF3A83B0),
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -164,33 +182,38 @@ class _SignUserScreenState extends State<SignUserScreen> {
               SizedBox(
                 width: 323,
                 height: 44,
-                child: TextFormField(
-                  controller: passwordController,
-                  keyboardType: TextInputType.visiblePassword,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 15.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+                child: Material(
+                  elevation: 18,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: passwordController,
+                    keyboardType: TextInputType.visiblePassword,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'password',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    suffixIcon: const Icon(
-                      Icons.lock_outline_rounded,
-                      color: Color(0xFF51D5E8),
-                      size: 20,
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'password',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      suffixIcon: const Icon(
+                        Icons.lock_outline_rounded,
+                        color: Color(0xFF51D5E8),
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -206,9 +229,13 @@ class _SignUserScreenState extends State<SignUserScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     SizedBox(
-                      width: 90,
+                      width: 100,
                       height: 40,
-                      child: MaterialButton(
+                      child: RaisedButton(
+                        color: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        padding: const EdgeInsets.all(0.0),
                         onPressed: () {
                           print(emailController.text);
                           print(passwordController.text);
@@ -216,13 +243,21 @@ class _SignUserScreenState extends State<SignUserScreen> {
                           print(LastNameController.text);
                         },
                         child: Ink(
-                          child: const Text(
-                            'Sign Up',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
+                          decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF51D5E8), Color(0xff1D1C6A)],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Container(
+                              constraints: const BoxConstraints(
+                                  maxWidth: 100, minHeight: 50),
+                              alignment: Alignment.center,
+                              child: const Text("Sign Up",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16))),
                         ),
-                        elevation: 5,
-                        color: Colors.blue,
                       ),
                     ),
                   ],

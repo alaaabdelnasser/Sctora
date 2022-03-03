@@ -38,6 +38,7 @@ class LoginScreen extends StatelessWidget {
               child: Material(
                 elevation: 18,
                 shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
                 child: TextFormField(
                   controller: userNameController,
                   keyboardType: TextInputType.text,
@@ -79,6 +80,7 @@ class LoginScreen extends StatelessWidget {
               child: Material(
                 elevation: 18,
                 shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
                 child: TextFormField(
                   controller: passwordController,
                   keyboardType: TextInputType.visiblePassword,
@@ -186,7 +188,7 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30)),
                         child: Container(
                             constraints: const BoxConstraints(
-                                maxWidth: 200, minHeight: 50),
+                                maxWidth: 100, minHeight: 50),
                             alignment: Alignment.center,
                             child: const Text("Sign In",
                                 style: TextStyle(
