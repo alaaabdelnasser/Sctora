@@ -8,19 +8,12 @@ class SignUserScreen extends StatefulWidget {
 }
 
 class _SignUserScreenState extends State<SignUserScreen> {
-  List<dynamic> gender = [];
-  String? genderId;
   var firstNameController = TextEditingController();
   var LastNameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var genderController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    this.gender.add({"id": 1, "label": "Male"});
-    this.gender.add({"id": 2, "label": "Female"});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,28 +103,40 @@ class _SignUserScreenState extends State<SignUserScreen> {
 
 
              // gender------------------------------------------------------------
-
-              FormHelper.dropDownWidget (
-                context,
-                "Gender",
-                this.genderId,
-                this.gender,
-                  (onChangedVal){
-                  this.genderId = onChangedVal;
-                  print("gender: $onChangedVal");
-                  },
-                    (onValidateVal){
-                  if(onValidateVal == null){
-                    return 'Please Select Gender';
-                  }
-                  return null;
-              },
-                borderColer: Theme.of(context).primaryColor,
-                borderFocusColer: Theme.of(context).primaryColor,
-                borderRadius: 30,
-                optionalValue:"id",
-                optionalLable:"label",
+              SizedBox(
+                width: 323,
+                height: 44,
+                child: Material(
+                  elevation: 18,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: genderController,
+                    keyboardType: TextInputType.text,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Gender',
+                      hintStyle:
+                      const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                    ),
+                  ),
+                ),
               ),
+
         const SizedBox(
           height: 30,
         ),
