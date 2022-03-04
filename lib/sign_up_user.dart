@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SignUserScreen extends StatefulWidget {
-  SignUserScreen({Key? key}) : super(key: key);
-
-  @override
-  _SignUserScreenState createState() => _SignUserScreenState();
-}
-
-class _SignUserScreenState extends State<SignUserScreen> {
+class SignUserScreen extends StatelessWidget {
   var firstNameController = TextEditingController();
   var LastNameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var genderController = TextEditingController();
 
+  SignUserScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,90 +18,93 @@ class _SignUserScreenState extends State<SignUserScreen> {
           child: Column(
             children: [
               // first last name------------------------------------------------
-                    SizedBox(
-                      width: 150,
-                      height: 44,
-                      child: Material(
-                        elevation: 18,
-                        shadowColor: const Color(0xFFC7D0F8),
-                        borderRadius: BorderRadius.circular(30),
-                        child: TextFormField(
-                          //controller: FirstNameController,
+              Padding(
 
-                          keyboardType: TextInputType.text,
-                          onFieldSubmitted: (String value) {
-                            print(value);
-                          },
-                          onChanged: (String value) {
-                            print(value);
-                          },
-                          //shadowColor: Color(0xFFC7D0F8),
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.only(left: 15.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                            hintText: 'First Name',
-                            hintStyle:
-                            const TextStyle(color: Colors.black26, fontSize: 16),
-                            border: const OutlineInputBorder(),
-                          ),
+                padding: const EdgeInsets.only(top: 170.0),
+                child: SizedBox(
+                  width: 323,
+                  height: 44,
+                  child: Material(
+                    elevation: 12,
+                    shadowColor: const Color(0xFFC7D0F8),
+                    borderRadius: BorderRadius.circular(30),
+                    child: TextFormField(
+                      controller: firstNameController,
+                      keyboardType: TextInputType.text,
+                      onFieldSubmitted: (String value) {
+                        print(value);
+                      },
+                      onChanged: (String value) {
+                        print(value);
+                      },
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.only(left: 15.0),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
                         ),
-                      ),
-                    ),
-                 const SizedBox(
-                   height: 30,
-                 ),
-
-                  SizedBox(
-                    width: 150,
-                    height: 44,
-                    child: Material(
-                      elevation: 18,
-                      shadowColor: const Color(0xFFC7D0F8),
-                      borderRadius: BorderRadius.circular(30),
-                      child: TextFormField(
-                        controller: LastNameController,
-
-                        keyboardType: TextInputType.text,
-                        onFieldSubmitted: (String value) {
-                          print(value);
-                        },
-                        onChanged: (String value) {
-                          print(value);
-                        },
-                        //shadowColor: Color(0xFFC7D0F8),
-                        decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.only(left: 15.0),
-                          enabledBorder: OutlineInputBorder(
+                        focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                             borderSide:
-                                const BorderSide(color: Color(0x1D1C6Aff)),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide:
-                                  const BorderSide(color: Color(0x1D1C6Aff))),
-                          hintText: 'Last Name',
-                          hintStyle: const TextStyle(
-                              color: Colors.black26, fontSize: 16),
-                          border: const OutlineInputBorder(),
-                        ),
+                                const BorderSide(color: Color(0x1D1C6Aff))),
+                        hintText: 'First Name',
+                        hintStyle:
+                            const TextStyle(color: Colors.black26, fontSize: 16),
+                        border: const OutlineInputBorder(),
                       ),
                     ),
                   ),
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
 
-
-             // gender------------------------------------------------------------
               SizedBox(
                 width: 323,
                 height: 44,
                 child: Material(
-                  elevation: 18,
+                  elevation: 12,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: LastNameController,
+
+                    keyboardType: TextInputType.text,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Last Name',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+
+              // gender------------------------------------------------------------
+              SizedBox(
+                width: 323,
+                height: 44,
+                child: Material(
+                  elevation: 12,
                   shadowColor: const Color(0xFFC7D0F8),
                   borderRadius: BorderRadius.circular(30),
                   child: TextFormField(
@@ -127,26 +124,27 @@ class _SignUserScreenState extends State<SignUserScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
                       hintText: 'Gender',
                       hintStyle:
-                      const TextStyle(color: Colors.black26, fontSize: 16),
+                          const TextStyle(color: Colors.black26, fontSize: 16),
                       border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
               ),
 
-        const SizedBox(
-          height: 30,
-        ),
+              const SizedBox(
+                height: 40,
+              ),
 
               //email----------------------------------------------------------
               SizedBox(
                 width: 323,
                 height: 44,
                 child: Material(
-                  elevation: 18,
+                  elevation: 12,
                   shadowColor: const Color(0xFFC7D0F8),
                   borderRadius: BorderRadius.circular(30),
                   child: TextFormField(
@@ -166,7 +164,8 @@ class _SignUserScreenState extends State<SignUserScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
                       hintText: 'Email',
                       hintStyle:
                           const TextStyle(color: Colors.black26, fontSize: 16),
@@ -188,7 +187,7 @@ class _SignUserScreenState extends State<SignUserScreen> {
                 width: 323,
                 height: 44,
                 child: Material(
-                  elevation: 18,
+                  elevation: 12,
                   shadowColor: const Color(0xFFC7D0F8),
                   borderRadius: BorderRadius.circular(30),
                   child: TextFormField(
@@ -209,7 +208,8 @@ class _SignUserScreenState extends State<SignUserScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
                       hintText: 'password',
                       hintStyle:
                           const TextStyle(color: Colors.black26, fontSize: 16),
@@ -224,12 +224,12 @@ class _SignUserScreenState extends State<SignUserScreen> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
 
               //sign up button--------------------------------------------------
               Padding(
-                padding: const EdgeInsets.only(right: 36.0),
+                padding: const EdgeInsets.only(right: 50.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

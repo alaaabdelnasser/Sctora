@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:sctora/login.dart';
-
+import 'package:sctora/sign_up_co.dart';
+import 'package:sctora/sign_up_user.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,16 +10,16 @@ void main() {
 
 // ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
 }
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -28,48 +29,38 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-
-
   @override
   Widget build(BuildContext context) {
-
-    return  Scaffold(
-
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/sctora.png',
-                      height: 250,
-
-                    ),
-
-                  ],
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 0.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/sctora.png',
+                    height: 200,
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-
+      ),
     );
   }
+
   @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => LoginScreen()));
+          .pushReplacement(MaterialPageRoute(builder: (_) => SignUserScreen()));
     });
   }
 }
-
-
-
-
-

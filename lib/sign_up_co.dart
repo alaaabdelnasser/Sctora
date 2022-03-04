@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sctora/sign_up_user.dart';
 
-// ignore: must_be_immutable
-class LoginScreen extends StatelessWidget {
-  var userNameController = TextEditingController();
+class SignCoScreen extends StatelessWidget {
+  var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
+  var coNameController = TextEditingController();
 
-  LoginScreen({Key? key}) : super(key: key);
-
+  SignCoScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,22 +13,53 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            //debug
-
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 100),
-                child: Image(
-                  image: AssetImage('assets/icon.png'),
-                  width: 291,
-                  height: 211,
+            Padding(
+              padding: const EdgeInsets.only(top: 400.0),
+              //company name-------------------------------------
+              child: SizedBox(
+                width: 323,
+                height: 44,
+                child: Material(
+                  elevation: 12,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: coNameController,
+                    keyboardType: TextInputType.text,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Company Name',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      suffixIcon: const Icon(
+                        Icons.business,
+                        color: Color(0xFF51D5E8),
+                        size: 20,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
             const SizedBox(
-              height: 90,
+              height: 40,
             ),
-            //username----------------------------------------------------------
+            //email----------------------------------------------------------
             SizedBox(
               width: 323,
               height: 44,
@@ -40,8 +68,8 @@ class LoginScreen extends StatelessWidget {
                 shadowColor: const Color(0xFFC7D0F8),
                 borderRadius: BorderRadius.circular(30),
                 child: TextFormField(
-                  controller: userNameController,
-                  keyboardType: TextInputType.text,
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
                   onFieldSubmitted: (String value) {
                     print(value);
                   },
@@ -57,13 +85,13 @@ class LoginScreen extends StatelessWidget {
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'username',
+                    hintText: 'Email',
                     hintStyle:
                         const TextStyle(color: Colors.black26, fontSize: 16),
                     border: const OutlineInputBorder(),
                     suffixIcon: const Icon(
-                      Icons.account_circle_outlined,
-                      color: Color(0xFF51D5E8),
+                      Icons.mail,
+                      color: Color(0xFF3A83B0),
                       size: 20,
                     ),
                   ),
@@ -71,7 +99,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
             //password----------------------------------------------------------
             SizedBox(
@@ -106,49 +134,6 @@ class LoginScreen extends StatelessWidget {
                     border: const OutlineInputBorder(),
                     suffixIcon: const Icon(
                       Icons.lock_outline_rounded,
-                      color: Color(0xFF3A83B0),
-                      size: 20,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            //confirm password-------------------------------------------------
-            SizedBox(
-              width: 323,
-              height: 44,
-              child: Material(
-                elevation: 12,
-                shadowColor: const Color(0xFFC7D0F8),
-                borderRadius: BorderRadius.circular(30),
-                child: TextFormField(
-                  controller: confirmPasswordController,
-                  keyboardType: TextInputType.visiblePassword,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 15.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'confirm password',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    suffixIcon: const Icon(
-                      Icons.lock_outline_rounded,
                       color: Color(0xFF51D5E8),
                       size: 20,
                     ),
@@ -160,7 +145,7 @@ class LoginScreen extends StatelessWidget {
               height: 40,
             ),
 
-            //sign in button----------------------------------------------------
+            //sign up button--------------------------------------------------
             Padding(
               padding: const EdgeInsets.only(right: 50.0),
               child: Row(
@@ -175,8 +160,9 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30)),
                       padding: const EdgeInsets.all(0.0),
                       onPressed: () {
-                        print(userNameController.text);
+                        print(emailController.text);
                         print(passwordController.text);
+                        print(coNameController.text);
                       },
                       child: Ink(
                         decoration: BoxDecoration(
@@ -190,41 +176,11 @@ class LoginScreen extends StatelessWidget {
                             constraints: const BoxConstraints(
                                 maxWidth: 100, minHeight: 50),
                             alignment: Alignment.center,
-                            child: const Text("Sign In",
+                            child: const Text("Sign Up",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 16))),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 110,
-            ),
-
-            //don't have account------------------------------------------------
-
-            Padding(
-              padding: const EdgeInsets.only(bottom: 5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Don\'t have an account?',
-                    style: TextStyle(color: Color(0xFF8A9EAD), fontSize: 12),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // leads to sign up screen :
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUserScreen()));
-                    },
-                    child: const Text('SIGN UP',
-                        style:
-                            TextStyle(color: Color(0xFF1F236E), fontSize: 12)),
                   ),
                 ],
               ),
