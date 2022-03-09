@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:sctora/login.dart';
+import 'package:sctora/profile_actor.dart';
 import 'package:sctora/sign_up_co.dart';
 import 'package:sctora/sign_up_user.dart';
 
@@ -37,17 +38,14 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 0.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/sctora.png',
-                    height: 200,
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/sctora.png',
+                  height: 200,
+                ),
+              ],
             ),
           ],
         ),
@@ -59,8 +57,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => SignUserScreen()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const ActorProfile()));
     });
   }
 }
