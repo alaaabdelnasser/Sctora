@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
 
-class ActorProfile extends StatelessWidget {
-  const ActorProfile({Key? key}) : super(key: key);
+class ActorProfile extends StatefulWidget {
+
+  @override
+  _ActorProfileState createState() => _ActorProfileState();
+}
+
+class _ActorProfileState extends State<ActorProfile>{
+
+  
+  
+  // Future pickImage() async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     this.image = imageTemporary;
+  //   } on platformException catch (e){
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +52,7 @@ class ActorProfile extends StatelessWidget {
             width: 7,
           ),
         ],
+
 
       ),
     );
