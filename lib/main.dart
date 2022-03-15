@@ -1,9 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:sctora/convex.dart';
+import 'package:sctora/filter.dart';
+import 'package:sctora/home_filter_actor.dart';
 import 'package:sctora/login.dart';
-import 'package:sctora/profile_actor.dart';
+import 'package:sctora/notification.dart';
+import 'package:sctora/profile%20edit.dart';
+import 'package:sctora/search.dart';
 import 'package:sctora/sign_up_co.dart';
 import 'package:sctora/sign_up_user.dart';
+
+import 'home.dart';
 
 void main() {
   runApp(MyApp());
@@ -58,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const ActorProfile()));
+          MaterialPageRoute(builder: (_) =>  LoginScreen()));
     });
   }
 }

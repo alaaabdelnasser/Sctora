@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class SignCoScreen extends StatelessWidget {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
   var coNameController = TextEditingController();
 
   SignCoScreen({Key? key}) : super(key: key);
@@ -13,44 +14,51 @@ class SignCoScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 400.0),
-              //company name-------------------------------------
-              child: SizedBox(
-                width: 323,
-                height: 44,
-                child: Material(
-                  elevation: 12,
-                  shadowColor: const Color(0xFFC7D0F8),
-                  borderRadius: BorderRadius.circular(30),
-                  child: TextFormField(
-                    controller: coNameController,
-                    keyboardType: TextInputType.text,
-                    onFieldSubmitted: (String value) {
-                      print(value);
-                    },
-                    onChanged: (String value) {
-                      print(value);
-                    },
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.only(left: 15.0),
-                      enabledBorder: OutlineInputBorder(
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: 100.0),
+                child: Image(
+                  image: AssetImage('assets/icon.png'),
+                  width: 291,
+                  height: 211,
+                ),
+              ),
+            ),
+            const SizedBox(height: 70),
+            //company name-------------------------------------
+            SizedBox(
+              width: 323,
+              height: 44,
+              child: Material(
+                elevation: 12,
+                shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
+                child: TextFormField(
+                  controller: coNameController,
+                  keyboardType: TextInputType.text,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide:
-                              const BorderSide(color: Color(0x1D1C6Aff))),
-                      hintText: 'Company Name',
-                      hintStyle:
-                          const TextStyle(color: Colors.black26, fontSize: 16),
-                      border: const OutlineInputBorder(),
-                      suffixIcon: const Icon(
-                        Icons.business,
-                        color: Color(0xFF51D5E8),
-                        size: 20,
-                      ),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'Company Name',
+                    hintStyle:
+                        const TextStyle(color: Colors.black26, fontSize: 16),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: const Icon(
+                      Icons.business,
+                      color: Color(0xFF51D5E8),
+                      size: 20,
                     ),
                   ),
                 ),
@@ -144,12 +152,53 @@ class SignCoScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
+            //confirm password-------------------------------------------------
+            SizedBox(
+              width: 323,
+              height: 44,
+              child: Material(
+                elevation: 12,
+                shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
+                child: TextFormField(
+                  controller: confirmPasswordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'Confirm password',
+                    hintStyle:
+                    const TextStyle(color: Colors.black26, fontSize: 16),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: const Icon(
+                      Icons.lock_outline_rounded,
+                      color: Color(0xFF51D5E8),
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
 
             //sign up button--------------------------------------------------
-            Padding(
-              padding: const EdgeInsets.only(right: 50.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+             Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: 100,
@@ -184,7 +233,6 @@ class SignCoScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
           ],
         ),
       ),
