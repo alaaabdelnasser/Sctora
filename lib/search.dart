@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'filter.dart';
+
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -13,106 +15,187 @@ class SearchScreen extends StatelessWidget {
           'Search',
           style: TextStyle(
             color: Color(0xFF51D5E8),
-            fontSize: 32,
-            fontFamily: 'SegoeScript',
+            fontSize: 27,
           ),
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                print('filter');
+              onPressed: () { Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  FilterSearchScreen()),);
               },
               icon: const Icon(
-                Icons.filter_list_sharp,
+                Icons.filter_list,
                 color: Color(0xFF1D1C6A),
-                size: 32,
+                size: 35,
               ))
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                border: Border.all(color: const Color(0xFF1D1C6A)),
-                color: Colors.white,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextFormField(
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.only(left: 15.0),
+          enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: const BorderSide(color: Color(0xFF1D1C6A)),
+          ),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide:
+                const BorderSide(color: Color(0x1D1C6Aff))),
+            hintText: 'Search',
+            hintStyle:
+            const TextStyle(color: Colors.black26, fontSize: 16),
+            border: const OutlineInputBorder(),
+            suffixIcon: const Icon(
+              Icons.search,
+              color: Color(0xFF51D5E8),
+              size: 36,
+            ),
+                ),
+                ),
+              const SizedBox(
+                height: 20.0,
               ),
-              padding: EdgeInsets.all(5.0),
-              child: Row(
+              Row(
                 children: const [
-                  Icon(
-                    Icons.search,
-                    color: Color(0xFF51D5E8),
-                    size: 36,
+                  Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      'Recent ',
+                      style: TextStyle(fontSize: 25.0, color: Colors.grey),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 230.0,
+                  ),
+                  Text(
+                    'See All ',
+                    style: TextStyle(fontSize: 20.0, color: Colors.grey),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Row(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    'Recent ',
-                    style: TextStyle(fontSize: 25.0, color: Color(0xFF8A9EAD)),
+              const SizedBox(height: 15),
+              SingleChildScrollView(
+                child: ListView.separated(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => buildSearchScreen(),
+                  separatorBuilder: (context, index) => const SizedBox(
+                    height: 10.0,
                   ),
+                  itemCount: 1,
                 ),
-                SizedBox(
-                  width: 220.0,
-                ),
-                Text(
-                  'See All ',
-                  style: TextStyle(fontSize: 20.0, color: Color(0xFF8A9EAD)),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            SingleChildScrollView(
-              child: ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) => buildSearchScreen(),
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 10.0,
-                ),
-                itemCount: 6,
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
   Widget buildSearchScreen() => Row(
-        children: const [
-          SizedBox(
-            width: 20.0,
-          ),
+        children:  [
 
-          Text(
-            'Search history ',
-            style: TextStyle(
-              fontSize: 15.0, color: Color(0xFF8A9EAD)
-            ),
-          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              children: [
+                Row(
+                  children: const [
+                    Text(
+                      'Abdelrahman Gamal ',
+                      style: TextStyle(
+                        fontSize: 15.0, color: Colors.grey
+                      ),
+
+                    ),
           SizedBox(
-            width: 220.0,
+            width: 210.0,
           ),
           //IconButton(icon: Icon(Icons.close,) , onPressed: () {  },),
-           Text(
-             ' x ',
-             style: TextStyle(
-               fontSize: 15.0, color: Color(0xFF8A9EAD)
-             ),
+               Text(
+                 ' x ',
+                 style: TextStyle(
+                   fontSize: 15.0, color: Colors.grey
+                 ),
+               ),
+             ],
            ),
+          SizedBox(height: 10,),
+          Row(
+            children: const [
+              Text(
+                'Ali Gad ',
+                style: TextStyle(
+                    fontSize: 15.0, color: Colors.grey
+                ),
+              ),
+
+          SizedBox(
+            width:299.0,
+          ),
+          //IconButton(icon: Icon(Icons.close,) , onPressed: () {  },),
+          Text(
+            ' x ',
+            style: TextStyle(
+                fontSize: 15.0, color: Colors.grey
+            ),
+          ),
         ],
-      );
+          ),
+                SizedBox(height: 10,),
+                Row(
+                  children: const [
+                    Text(
+                      'Abdelrahman Ehab ',
+                      style: TextStyle(
+                          fontSize: 15.0, color: Colors.grey
+                      ),
+                    ),
+                    SizedBox(
+                      width: 221.0,
+                    ),
+                    Text(
+                      ' x ',
+                      style: TextStyle(
+                          fontSize: 15.0, color: Colors.grey
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: const [
+                    Text(
+                      'Omnia Alsawaf ',
+                      style: TextStyle(
+                          fontSize: 15.0, color: Colors.grey
+                      ),
+                    ),
+                    SizedBox(
+                      width: 246.0,
+                    ),
+                    //IconButton(icon: Icon(Icons.close,) , onPressed: () {  },),
+                    Text(
+                      ' x ',
+                      style: TextStyle(
+                          fontSize: 15.0, color: Colors.grey
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+
+        ],);
 }
