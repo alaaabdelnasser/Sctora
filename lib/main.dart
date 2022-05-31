@@ -1,23 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:sctora/home.dart';
-import 'package:sctora/convex.dart';
-import 'package:sctora/filter.dart';
-import 'package:sctora/home_filter_actor.dart';
 import 'package:sctora/login.dart';
-import 'package:sctora/notification.dart';
-import 'package:sctora/profile%20edit.dart';
-import 'package:sctora/search.dart';
-import 'package:sctora/sign_up_co.dart';
-import 'package:sctora/sign_up_info.dart';
-import 'package:sctora/sign_up_user.dart';
+import 'actors.dart';
 
-import 'home.dart';
 
 void main() {
   runApp(MyApp());
 }
-
 // ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -67,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) =>  LoginScreen()));
+          MaterialPageRoute(builder: (_) => HomeScreen()));
     });
   }
 }

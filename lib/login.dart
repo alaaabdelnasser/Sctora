@@ -1,16 +1,25 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:sctora/home.dart';
 import 'package:sctora/password_reset.dart';
 import 'package:sctora/sign_up_user.dart';
-import 'home.dart';
+
 
 // ignore: must_be_immutable
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
-  bool passwordObscure = true;
+  bool _isHidden = true;
 
-  LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,35 +42,39 @@ class LoginScreen extends StatelessWidget {
               height: 90,
             ),
             //email----------------------------------------------------------
-            Material(
-              elevation: 12,
-              shadowColor: const Color(0xFFC7D0F8),
-              borderRadius: BorderRadius.circular(30),
-              child: TextFormField(
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                onFieldSubmitted: (String value) {
-                  print(value);
-                },
-                onChanged: (String value) {
-                  print(value);
-                },
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(left: 15.0),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
+            Container(
+              width: 350,
+              height: 44,
+              child: Material(
+                elevation: 12,
+                shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
+                child: TextFormField(
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                  hintText: 'Email',
-                  hintStyle:
-                      const TextStyle(color: Colors.black26, fontSize: 16),
-                  prefixIcon: const Icon(
-                    Icons.mail,
-                    color: Color(0xFF51D5E8),
-                    size: 20,
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'Email',
+                    hintStyle:
+                    const TextStyle(color: Colors.black26, fontSize: 16),
+                    prefixIcon: const Icon(
+                      Icons.mail,
+                      color: Color(0xFF51D5E8),
+                      size: 20,
+                    ),
                   ),
                 ),
               ),
@@ -70,55 +83,49 @@ class LoginScreen extends StatelessWidget {
               height: 30,
             ),
             //password----------------------------------------------------------
-            Material(
-              elevation: 12,
-              shadowColor: const Color(0xFFC7D0F8),
-              borderRadius: BorderRadius.circular(30),
-              child: TextFormField(
-                controller: passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                onFieldSubmitted: (String value) {
-                  print(value);
-                },
-                onChanged: (String value) {
-                  print(value);
-                },
-                obscureText: passwordObscure,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(left: 15.0),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
+            Container(
+              width: 350,
+              height: 44,
+              child: Material(
+                elevation: 12,
+                shadowColor: const Color(0xFFC7D0F8),
+                borderRadius: BorderRadius.circular(30),
+                child: TextFormField(
+                  controller: passwordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  onFieldSubmitted: (String value) {
+                    print(value);
+                  },
+                  onChanged: (String value) {
+                    print(value);
+                  },
+                  obscureText: _isHidden,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.only(left: 15.0),
+                    enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
-                  hintText: 'Password',
-                  hintStyle:
-                      const TextStyle(color: Colors.black26, fontSize: 16),
-                  prefixIcon: const Icon(
-                    Icons.lock_outline_rounded,
-                    color: Color(0xFF3A83B0),
-                    size: 20,
+                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff))),
+                    hintText: 'Password',
+                    hintStyle:
+                    const TextStyle(color: Colors.black26, fontSize: 16),
+                    prefixIcon: const Icon(
+                      Icons.lock_outline_rounded,
+                      color: Color(0xFF3A83B0),
+                      size: 20,
+                    ),
+                    suffixIcon: InkWell(
+                      onTap: _togglePasswordView,
+                      child: Icon( _isHidden
+                          ?Icons.visibility_off
+                      : Icons.visibility,
+                        color: Color(0xFF51D5E8),
+                      ),
+                    ),
                   ),
-                  // suffixIcon: IconButton(
-                  //   onPressed: () {
-                  //     setState(() {
-                  //       passwordObscure = !passwordObscure;
-                  //     });
-                  //   },
-                  //   icon: passwordObscure == true
-                  //       ? Icon(
-                  //           passwordObscure
-                  //               ? Icons.visibility_off
-                  //               : Icons.visibility,
-                  //           color: const Color(0xFF3A83B0),
-                  //         )
-                  //       : Icon(
-                  //           Icons.visibility,
-                  //           color: Color(0xFF3A83B0),
-                  //         ),
-                  // ),
                 ),
               ),
             ),
@@ -151,7 +158,7 @@ class LoginScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  HomeScreen()));
+                              builder: (context) => const HomeScreen()));
                     },
                     child: Ink(
                       decoration: BoxDecoration(
@@ -198,7 +205,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: const Text('SIGN UP',
                         style:
-                            TextStyle(color: Color(0xFF1F236E), fontSize: 12)),
+                        TextStyle(color: Color(0xFF1F236E), fontSize: 12)),
                   ),
                 ],
               ),
@@ -208,4 +215,12 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+
+  void _togglePasswordView() {
+    setState(() {
+  _isHidden = !_isHidden;
+  });
+ }
 }
+

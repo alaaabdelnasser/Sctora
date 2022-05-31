@@ -312,7 +312,7 @@ class _FilterSearchScreenState extends State<FilterSearchScreen> {
               Slider(
                 activeColor: Color(0xFF79CDE0),
                 value: age,
-                min: 10.0,
+                min: 4.0,
                 max: 100.0,
                 onChanged: (value) {
                   setState(() {

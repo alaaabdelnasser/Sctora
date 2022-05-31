@@ -74,6 +74,20 @@ flutter:
     - assets/icons/settings.svg
     - assets/icons/user icon.svg
     - assets/images/profile.png
+    - assets/images/Ali.jpg
+    - assets/images/Gamal.jpg
+    - assets/images/Jimmy.jpg
+    - assets/images/mado.jpg
+    - assets/images/Mona.jpg
+    - assets/images/Omnia.jpg
+    - assets/images/post1.jpg
+    - assets/images/Post2.jpg
+    - assets/images/Post3.jpg
+    - assets/images/Post4.jpg
+    - assets/images/Rovan.jpg
+    - assets/images/Ahmed.jpg
+    - assets/images/jukumo.png
+    - assets/images/bebrand.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'filter.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
+
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +38,51 @@ class SearchScreen extends StatelessWidget {
                 color: Color(0xFF1D1C6A),
                 size: 35,
               ))
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedFontSize: 10.0,
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Color(0xFF3A83B0),
+              size: 35.0,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_circle_outline,
+              color: Color(0xFF3A83B0),
+              size: 35.0,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Color(0xFF3A83B0),
+              size: 35.0,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.notifications,
+              color: Color(0xFF3A83B0),
+              size: 35.0,
+            ),
+            label: '',
+          ),
         ],
       ),
       body: Padding(

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sctora/sign_up_info.dart';
 
-class SignUserScreen extends StatelessWidget {
+class SignUserScreen extends StatefulWidget {
+  @override
+  _SignUserScreenState createState() => _SignUserScreenState();
+}
+
+class _SignUserScreenState extends State<SignUserScreen> {
   var userNameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
-  bool passwordObscure = true;
-
-  SignUserScreen({Key? key}) : super(key: key);
+  bool _isHidden = true;
+  bool _isHidden2 = true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,44 +31,50 @@ class SignUserScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // first last name------------------------------------------------
-              Material(
-                elevation: 12,
-                shadowColor: const Color(0xFFC7D0F8),
-                borderRadius: BorderRadius.circular(30),
-                child: TextFormField(
-                  controller: userNameController,
-                  validator: (value){
-                    if(value!.isEmpty ||!RegExp(r'^[a-z A-Z]+$').hasMatch(value!)){
-                      return" Enter Correct Username";
-
-                    }else {return null;}
-                  },
-                  keyboardType: TextInputType.text,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 15.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+              // user name------------------------------------------------
+              Container(
+                width: 350,
+                height: 44,
+                child: Material(
+                  elevation: 12,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: userNameController,
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
+                        return " Enter Correct Username";
+                      } else {
+                        return null;
+                      }
+                    },
+                    keyboardType: TextInputType.text,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide:
-                            const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'Username',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(
-                      Icons.person,
-                      color: Color(0xFF51D5E8),
-                      size: 20,
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Username',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: Color(0xFF51D5E8),
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -73,43 +83,49 @@ class SignUserScreen extends StatelessWidget {
                 height: 40,
               ),
               //email----------------------------------------------------------
-              Material(
-                elevation: 12,
-                shadowColor: const Color(0xFFC7D0F8),
-                borderRadius: BorderRadius.circular(30),
-                child: TextFormField(
-                  controller: emailController,
-                  validator: (value){
-                    if(value!.isEmpty ||!RegExp(r'^[\w-\.]+@([\w-]').hasMatch(value!)){
-                      return" Enter Correct Email";
-
-                    }else {return null;}
-                  },
-                  keyboardType: TextInputType.emailAddress,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 15.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+              Container(
+                width: 350,
+                height: 44,
+                child: Material(
+                  elevation: 12,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: emailController,
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^[\w-\.]+@([\w-]').hasMatch(value!)) {
+                        return " Enter Correct Email";
+                      } else {
+                        return null;
+                      }
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide:
-                            const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'Email',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(
-                      Icons.mail,
-                      color: Color(0xFF3A83B0),
-                      size: 20,
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Email',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(
+                        Icons.mail,
+                        color: Color(0xFF3A83B0),
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -118,112 +134,105 @@ class SignUserScreen extends StatelessWidget {
                 height: 40,
               ),
               //password----------------------------------------------------------
-              Material(
-                elevation: 12,
-                shadowColor: const Color(0xFFC7D0F8),
-                borderRadius: BorderRadius.circular(30),
-                child: TextFormField(
-                  controller: passwordController,
-                  keyboardType: TextInputType.visiblePassword,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  obscureText: passwordObscure,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 15.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+              Container(
+                width: 350,
+                height: 44,
+                child: Material(
+                  elevation: 12,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: passwordController,
+                    keyboardType: TextInputType.visiblePassword,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    obscureText: _isHidden,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 15.0),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide:
-                            const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'Password',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(
-                      Icons.lock_outline_rounded,
-                      color: Color(0xFF51D5E8),
-                      size: 20,
-                    ),
-                    suffixIcon:  IconButton(
-                      onPressed: () {},
-                      icon : const Icon(Icons.visibility_off,  color: Color(0xFF3A83B0)),
-                      )
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Password',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(
+                        Icons.lock_outline_rounded,
+                        color: Color(0xFF51D5E8),
+                        size: 20,
+                      ),
+                      suffixIcon: InkWell(
+                        onTap: _togglePasswordView,
+                        child: Icon(
+                          _isHidden ? Icons.visibility_off : Icons.visibility,
+                          color: Color(0xFF3A83B0),
+                        ),
                       ),
                     ),
                   ),
+                ),
+              ),
 
               const SizedBox(
                 height: 40,
               ),
               //confirm password-------------------------------------------------
-              Material(
-                elevation: 12,
-                shadowColor: const Color(0xFFC7D0F8),
-                borderRadius: BorderRadius.circular(30),
-                child: TextFormField(
-                  controller: confirmPasswordController,
-                  keyboardType: TextInputType.visiblePassword,
-                  onFieldSubmitted: (String value) {
-                    print(value);
-                  },
-                  onChanged: (String value) {
-                    print(value);
-                  },
-                  obscureText: passwordObscure,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 10.0),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
+              Container(
+                width: 350,
+                height: 44,
+                child: Material(
+                  elevation: 12,
+                  shadowColor: const Color(0xFFC7D0F8),
+                  borderRadius: BorderRadius.circular(30),
+                  child: TextFormField(
+                    controller: confirmPasswordController,
+                    keyboardType: TextInputType.visiblePassword,
+                    onFieldSubmitted: (String value) {
+                      print(value);
+                    },
+                    onChanged: (String value) {
+                      print(value);
+                    },
+                    obscureText: _isHidden2,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 10.0),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide:
-                            const BorderSide(color: Color(0x1D1C6Aff))),
-                    hintText: 'Confirm password',
-                    hintStyle:
-                        const TextStyle(color: Colors.black26, fontSize: 16),
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(
-                      Icons.lock_outline_rounded,
-                      color: Color(0xFF51D5E8),
-                      size: 20,
-                    ),
-                    // suffixIcon:
-                    // IconButton(
-                    //   onPressed: () {
-                    //     setState(() {
-                    //       passwordObscure = !passwordObscure;
-                    //     });
-                    //   },
-                    //   icon: passwordObscure == true
-                    //       ? Icon(
-                    //     passwordObscure
-                    //         ? Icons.visibility_off
-                    //         : Icons.visibility,
-                    //     color: Color(0xFF3A83B0),
-                    //   )
-                    //       : Icon(
-                    //     Icons.visibility,
-                    //     color: Color(0xFF3A83B0),
-                    //   ),
-                    // ),
-                    /////////////////////////////////
-                      //  const Icon(
-                      //   Icons.visibility,
-                      //   color: Color(0xFF3A83B0),
-                      //   size: 20,
-                      // ),
+                        borderSide: const BorderSide(color: Color(0x1D1C6Aff)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              const BorderSide(color: Color(0x1D1C6Aff))),
+                      hintText: 'Confirm password',
+                      hintStyle:
+                          const TextStyle(color: Colors.black26, fontSize: 16),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(
+                        Icons.lock_outline_rounded,
+                        color: Color(0xFF51D5E8),
+                        size: 20,
+                      ),
+                      suffixIcon: InkWell(
+                        onTap: _togglePasswordView2,
+                        child: Icon(
+                          _isHidden2 ? Icons.visibility_off : Icons.visibility,
+                          color: Color(0xFF3A83B0),
+                        ),
+                      ),
                     ),
                   ),
                 ),
+              ),
               const SizedBox(
                 height: 40,
               ),
@@ -277,9 +286,15 @@ class SignUserScreen extends StatelessWidget {
     );
   }
 
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
+  }
 
+  void _togglePasswordView2() {
+    setState(() {
+      _isHidden2 = !_isHidden2;
+    });
+  }
 }
-
-
-
-
