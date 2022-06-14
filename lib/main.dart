@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:sctora/home.dart';
 import 'package:sctora/login.dart';
+import 'package:sctora/profile.dart';
+import 'package:sctora/sign_up_user.dart';
 import 'actors.dart';
 
 
@@ -55,9 +57,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => HomeScreen()));
+          MaterialPageRoute(builder: (_) => LoginScreen()));
     });
   }
 }

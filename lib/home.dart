@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sctora/actors.dart';
 import 'package:sctora/profile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfileScreen()),
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
               );
             },
             icon: const Icon(Icons.account_circle,

@@ -25,12 +25,12 @@ class _SettingsState extends State<Settings> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.only(left: 16, top: 25, right: 16),
+        padding: const EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.person,
                   color: Color(0xFF51D5E8),
@@ -44,11 +44,11 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               height: 15,
               thickness: 2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             buildAccountOptionRow(context, "Change password"),
@@ -138,7 +138,7 @@ class _SettingsState extends State<Settings> {
                 title: Text(title),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
+                  children: const [
                     Text("Option 1"),
                     Text("Option 2"),
                     Text("Option 3"),
@@ -149,7 +149,7 @@ class _SettingsState extends State<Settings> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("Close")),
+                      child: const Text("Close")),
                 ],
               );
             });

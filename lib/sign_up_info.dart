@@ -44,7 +44,7 @@ class _SignInfoScreenState extends State<SignInfoScreen> {
                 ),),
                 child: Column(
                   children: [
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       children: [
                         const

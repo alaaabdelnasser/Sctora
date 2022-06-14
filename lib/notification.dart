@@ -404,7 +404,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 top: 5.0,
               ),
               child: Text(
-                'Ahmed Hany, Mona Samir and Rovan Tareq liked your post',
+                'Ahmed Hany, Mona Samir and Rovan Tarek liked your post',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 14.0,

@@ -138,7 +138,7 @@ class _SearchScreenState extends State<SearchScreen> {
               const SizedBox(height: 15),
               SingleChildScrollView(
                 child: ListView.separated(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) => buildSearchScreen(),
                   separatorBuilder: (context, index) => const SizedBox(
@@ -182,7 +182,7 @@ class _SearchScreenState extends State<SearchScreen> {
                ),
              ],
            ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Row(
             children: const [
               Text(
@@ -204,7 +204,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ],
           ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Row(
                   children: const [
                     Text(
@@ -224,7 +224,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Row(
                   children: const [
                     Text(
